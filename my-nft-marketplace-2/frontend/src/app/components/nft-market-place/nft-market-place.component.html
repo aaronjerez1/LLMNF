@@ -1,0 +1,49 @@
+<div *ngIf="senderAddress" [formGroup]="form">
+  <h2>LLM Marketplace</h2>
+
+  <div>
+    <h3>Mint and List NFT</h3>
+    <div>
+      <label>Token URI:</label>
+      <input type="text" formControlName="tokenURI" placeholder="Token URI">
+    </div>
+    <div>
+      <label>Price (ETH):</label>
+      <input type="number" formControlName="price" placeholder="Price in ETH">
+    </div>
+    <button (click)="mintAndListNFT()">Mint and List NFT</button>
+  </div>
+
+  <div>
+    <h3>Infer Mint and List NFT</h3>
+    <div>
+      <label>Prompt:</label>
+      <input type="text" formControlName="prompt" placeholder="Ex. what is after death">
+    </div>
+    <div>
+      <label>Max Tokens:</label>
+      <input type="number" formControlName="maxTokens" placeholder="Ex. 100">
+    </div>
+    <div *ngIf="inferredTokenURI" class="token-uri-display">
+      <p>{{ inferredTokenURI }}</p>
+    </div>
+
+    <button (click)="inferMintAndListNFT()">Infer Token URI</button>
+  </div>
+
+  <div>
+    <h3>Buy Asset</h3>
+    <div>
+      <label>Token ID:</label>
+      <input type="number" formControlName="tokenId" placeholder="Token ID">
+    </div>
+    <div>
+      <label>Price (ETH):</label>
+      <input type="number" formControlName="price" placeholder="Price in ETH">
+    </div>
+    <button (click)="buyNFT()">Buy NFT</button>
+  </div>
+</div>
+<div *ngIf="!senderAddress">
+  <p>Please connect to MetaMask.</p>
+</div>

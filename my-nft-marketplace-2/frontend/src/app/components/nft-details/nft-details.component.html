@@ -1,0 +1,20 @@
+<!-- src/app/nft-details/nft-details.component.html -->
+
+<div [formGroup]="form">
+  <h2>NFT Details</h2>
+  <div>
+    <label>Token ID:</label>
+    <input type="number" formControlName="tokenId" placeholder="Token ID">
+  </div>
+  <button (click)="fetchTokenDetails()">Fetch Token Details</button>
+
+  <div *ngIf="tokenURI">
+    <h3>Token URI</h3>
+    <p>{{ tokenURI }}</p>
+  </div>
+
+  <div *ngIf="tokenOwner">
+    <h3>Token Owner</h3>
+    <p>{{ tokenOwner }}</p>
+  </div>
+</div>
